@@ -70,7 +70,7 @@ class Game < ApplicationRecord
     players.each do |player|
       next unless player.alive?
 
-      player.kill unless world.safe_at?(player.position_vertical, player.position_horizontal)
+      player.kill unless world.safe_at?(player.position)
     end
   end
 
@@ -114,7 +114,7 @@ class Game < ApplicationRecord
           player.move_back
         end
 
-        player.kill unless world.safe_at?(player.position_vertical, player.position_horizontal)
+        player.kill unless world.safe_at?(player.position)
       end
     end
 
